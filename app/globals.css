@@ -1,26 +1,450 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Core form styles */
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.formSection {
+  border: 1px solid gray;
+  background: lightgray;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.formSection h3,
+input {
+  width: 80%;
+  height: 1.5rem;
+  font-size: 1.2rem;
+}
+
+.formSection button {
+  background: rgb(45, 45, 17);
+  padding: 10px 30px;
+  color: white;
+}
+
+/* Login page styles */
+.login-bg {
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.login-card {
+  padding: 20px;
+  border-radius: 10px;
+  width: 520px;
+  max-width: 96%;
+  box-sizing: border-box;
+  background: rgba(245, 245, 245, 0.9); /* light card background */
+}
+
+.login-card h1 {
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.login-input {
+  width: 70%;
+  padding: 12px 10px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  outline: none;
+  background: #fff;
+}
+
+.login-button {
+  padding: 15px 10px;
+  width: 150px;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #2d2dbb;
+  color: #fff;
+  border: none;
+}
+
+.login-links {
+  margin-top: 8px;
+}
+
+.login-register {
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* Register page styles (reuses login-card/input/button) */
+.register-bg {
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.register-card {
+  padding: 20px;
+  border-radius: 10px;
+  width: 520px;
+  max-width: 96%;
+  box-sizing: border-box;
+  background: rgba(245, 245, 245, 0.95);
+}
+
+/* Navbar styles */
+.navSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand a {
+  color: #111;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.call-now {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.nav-link {
+  color: #333;
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.nav-link:hover {
+  background: rgba(45, 45, 187, 0.06);
+  color: #1f2dbe;
+}
+
+.logout {
+  background: #e53e3e;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+/* Booking page / resort list base styles */
+.bg-sky-200 {
+  background-color: #e0f2fe;
+}
+
+.resort-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+/* Landing page background */
+.landing-bg {
+  background-color: #e8f6ff; /* light sky-blue background for whole landing page */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ensure hero section spacing stays */
+.hero {
+  padding-top: 28px;
+  padding-bottom: 28px;
+}
+
+/* Navbar background (stronger than page bg) */
+.navSection {
+  background: #ffffff; /* set solid navbar background */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+/* Resorts list styles - only classes you use in JSX */
+.resort-card {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  background: #fffbe6;
+  padding: 18px;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  margin-bottom: 18px;
+  transition: box-shadow 0.3s ease;
+}
+
+.resort-card:hover {
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+/* left column (fixed width) */
+.resort-left {
+  flex: 0 0 260px; /* controls image+title width */
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* image sizing */
+.resort-image {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+
+/* title below image */
+.resort-title {
+  font-size: 18px;
+  margin: 4px 0 0 0;
+}
+
+/* right/details column takes remaining width */
+.resort-details {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* location + desc */
+.location {
+  font-weight: 600;
+  color: #444;
+  margin: 0 0 6px 0;
+}
+.desc {
+  margin: 0 0 10px 0;
+  color: #333;
+  line-height: 1.4;
+}
+
+/* book button aligned bottom-right of details column */
+.book-btn {
+  background: #0071c2;
+  color: #fff;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* responsive: stack columns on small screens */
+@media (max-width: 900px) {
+  .resort-card {
+    flex-direction: column;
+  }
+  .resort-left {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+  .resort-image {
+    height: 200px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@media (max-width: 720px) {
+  .navSection {
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px;
+  }
+  .nav-right {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .nav-links {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .login-input {
+    width: 90%;
+  }
+
+  .login-card,
+  .register-card {
+    width: 92%;
+    padding: 18px;
+  }
+}
+
+/* Book modal styles */
+.bookNowWrap {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  /* dim page and optionally use an image from public/ */
+  background: rgba(0,0,0,0.45) url('/modal-bg.jpg') center/cover no-repeat;
+}
+
+/* modal card */
+.book-modal {
+  width: 560px;
+  max-width: 96%;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 22px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.28);
+  box-sizing: border-box;
+}
+
+/* title/subtitle */
+.book-modal h2 {
+  margin: 0 0 10px;
+  font-size: 1.25rem;
+  color: #111;
+}
+.book-modal p.subtitle {
+  margin: 0 0 16px;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+/* form layout */
+.book-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* inputs, selects, textarea */
+.book-input,
+.book-select,
+.book-textarea {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #e6e6e6;
+  background: #fafafa;
+  outline: none;
+  box-sizing: border-box;
+}
+
+/* subtle focus state */
+.book-input:focus,
+.book-select:focus,
+.book-textarea:focus {
+  border-color: #86b7ff;
+  box-shadow: 0 0 0 4px rgba(13,110,253,0.08);
+}
+
+/* textarea sizing */
+.book-textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* two-column small rows (date + guests etc.) */
+.book-row {
+  display: flex;
+  gap: 10px;
+}
+.book-row .book-input,
+.book-row .book-select {
+  flex: 1 1 0;
+}
+
+/* actions */
+.book-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 6px;
+}
+.book-submit {
+  background: #0071c2;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.book-cancel {
+  background: transparent;
+  border: 1px solid #d0d0d0;
+  color: #333;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* small screens */
+@media (max-width: 640px) {
+  .book-modal {
+    padding: 16px;
+  }
+  .book-row {
+    flex-direction: column;
+  }
+  .book-actions {
+    justify-content: stretch;
+    flex-direction: column-reverse;
+  }
+  .book-submit, .book-cancel {
+    width: 100%;
+  }
 }
