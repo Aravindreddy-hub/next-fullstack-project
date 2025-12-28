@@ -1,1 +1,2 @@
-export { GET, POST } from "@/api/auth/[...nextauth]/route";
+// replace the bad alias with a relative path re-export
+export { GET, POST } from "./[...nextauth]/route"
